@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operator/map';
 
 @Injectable()
 export class MovieService {
@@ -11,22 +12,37 @@ export class MovieService {
 
   constructor(public _http: HttpClient) { }
 
+  allMovies() {
+    return this
+    ._http.get(this.movie_url + 'discover/movie?primary_release_date.gte=2017-05-24&primary_release_date.lte=2018-05-24&api_key=' + this.api_key);
+  }
+
   searchMovie(movie: string) {
     this.movie_string = movie;
-    return this._http.get(this.movie_url + 'search/movie?query=' + this.movie_string + '&api_key=' + this.api_key);
+    return this
+    ._http.get(this.movie_url + 'search/movie?query=' + this.movie_string + '&api_key=' + this.api_key);
   }
 
   getUpcomingMovies() {
-    // tslint:disable-next-line:max-line-length
-    return this._http.get(this.movie_url + 'discover/movie?primary_release_date.gte=2018-05-12&primary_release_date.lte=2018-07-31' + '&api_key=' + this.api_key);
+
+    return this
+    ._http.get(this.movie_url + `discover/movie?primary_release_date.gte=2018-05-21&
+            primary_release_date.lte=2018-07-31&api_key=`+ this.api_key);
+
   }
 
   getPopularMovies() {
-    return this._http.get(this.movie_url + 'discover/movie?sort_by=popularity.desc' + '&api_key=' + this.api_key);
+    return this
+    ._http.get(this.movie_url + 'discover/movie?sort_by=popularity.desc' + '&api_key=' + this.api_key);
+    
   }
 
   getMovie(id: number) {
     return this._http.get(this.movie_url + 'movie/' + id + '?api_key=' + this.api_key);
   }
+  // salman_movies() {
+  //   return this
+  //   ._http.get(this.movie_url + 'find/person?name=salman+khan' + '&api_key=' + this.api_key);
+  // }
 
 }

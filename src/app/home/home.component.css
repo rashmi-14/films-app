@@ -1,0 +1,34 @@
+.dropdown-menu {
+    width: 160px !important;
+    height: 250px !important;
+}
+.dropdown{
+    width: 500px;
+}
+h1{
+    
+    background-color: rgb(102, 6, 6);
+    color: rgb(239, 239, 247);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* .row{
+    background-color: rgb(3, 65, 77);
+} */
+
+.movie{
+    text-decoration-style: solid;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-align: center; 
+    color:hsl(76, 91%, 42%);
+    background-color:maroon;
+    font-size: 40px;
+    font-family:'great-vibes';
+    /* border-image: url(border.png) 30 stretch; */
+}
+.container{
+background-color: black;
+}
